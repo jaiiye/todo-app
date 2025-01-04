@@ -1,4 +1,3 @@
-// src/lib/services/taskService.js
 const API_URL = 'http://localhost:8080/tasks';
 
 export async function getAllTasks() {

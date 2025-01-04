@@ -1,12 +1,12 @@
 package com.example.todolist.model;
 
-import java.time.LocalDateTime; // For LocalDateTime
-import jakarta.persistence.Column; // For @Column
-import jakarta.persistence.Entity; // For @Entity
-import jakarta.persistence.GeneratedValue; // For @GeneratedValue
+import java.time.LocalDateTime; 
+import jakarta.persistence.Column; 
+import jakarta.persistence.Entity; 
+import jakarta.persistence.GeneratedValue; 
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table; // For @Table
+import jakarta.persistence.Table; 
 
 @Entity
 @Table(name = "task")

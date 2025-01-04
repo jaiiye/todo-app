@@ -10,12 +10,10 @@
   let tasks = [];
   let error = null;
 
-  // Fields for adding a new task
   let newTaskName = '';
   let newTaskDescription = '';
   let newTaskCompleted = false;
 
-  // Fetch existing tasks once component mounts
   onMount(async () => {
     try {
       tasks = await getAllTasks();
@@ -24,7 +22,6 @@
     }
   });
 
-  // Add a new task
   async function addTask() {
     if (!newTaskName.trim()) return;
 
@@ -36,8 +33,7 @@
 
     try {
       const created = await createTask(taskData);
-      tasks = [...tasks, created]; // Add the new task to our array
-      // Reset form fields
+      tasks = [...tasks, created]; 
       newTaskName = '';
       newTaskDescription = '';
       newTaskCompleted = false;
@@ -46,15 +42,11 @@
     }
   }
 
-  // Toggle editing for a specific task
   function toggleEdit(task) {
-    // Flip the editing property
     task.editing = !task.editing;
-    // Force Svelte to see the changed array reference
     tasks = [...tasks];
   }
 
-  // Save edited changes (calls updateTask)
   async function saveTask(task) {
     try {
       const updated = await updateTask(task.id, {
@@ -62,9 +54,7 @@
         description: task.description,
         completed: task.completed
       });
-      // Merge back into tasks array
       tasks = tasks.map(t => t.id === task.id ? updated : t);
-      // Turn off editing
       task.editing = false;
       tasks = [...tasks];
     } catch (err) {
@@ -72,7 +62,6 @@
     }
   }
 
-  // Delete a task
   async function removeTask(id) {
     try {
       await deleteTask(id);
@@ -130,7 +119,6 @@
     <div class="error">{error}</div>
   {/if}
 
-  <!-- ADD NEW TASK FORM -->
   <div class="add-task-form">
     <h4>Create New Task</h4>
     <label>
@@ -166,13 +154,11 @@
     </button>
   </div>
 
-  <!-- TASK GRID -->
   <div class="row mt-4">
     {#each tasks as task (task.id)}
       <div class="col-md-4 mb-3">
         <div class="card">
           {#if !task.editing}
-            <!-- Normal view mode -->
             <h5>
               {task.name}
               {#if task.completed}
@@ -188,7 +174,6 @@
               Delete
             </button>
           {:else}
-            <!-- Edit mode -->
             <h5>Editing Task #{task.id}</h5>
             <input
               class="edit-field"

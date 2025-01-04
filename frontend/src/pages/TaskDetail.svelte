@@ -1,4 +1,3 @@
-<!-- src/pages/TaskDetail.svelte -->
 <script>
   import { onMount } from 'svelte';
   import { wrap } from 'svelte-spa-router/wrap';

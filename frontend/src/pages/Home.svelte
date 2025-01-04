@@ -1,8 +1,3 @@
-<!-- src/pages/Home.svelte -->
-<script>
-  // A simple home page with a nice futuristic vibe
-</script>
-
 <style>
   .home-container {
     margin-top: 3rem;

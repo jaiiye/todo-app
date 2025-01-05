@@ -111,18 +111,6 @@
     border-radius: 6px;
     border: 1px solid var(--pastel-gray);
   }
-  .btn-complete {
-    background-color: var(--pastel-green);
-    color: var(--pastel-white);
-    border: 1px solid var(--pastel-dark-gray);
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  .btn-complete:hover {
-    background-color: var(--pastel-dark-gray);
-  }
 </style>
 
 <div class="container tasks-container">
@@ -185,9 +173,6 @@
             </button>
             <button class="btn btn-outline-danger" on:click={() => removeTask(task.id)}>
               Delete
-            </button>
-            <button class="btn-complete" on:click={() => saveTask(task)}>
-              Complete
             </button>
           {:else}
             <h5>Editing Task #{task.id}</h5>

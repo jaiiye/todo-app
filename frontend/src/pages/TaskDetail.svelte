@@ -2,9 +2,6 @@
   import { onMount } from 'svelte';
   import { wrap } from 'svelte-spa-router/wrap';
 
-  // Because svelte-spa-router provides :id in the route,
-  // we can access it with $loc or with a param from the router.
-  // By default, we can read from the URL hash.
   import { getContext } from 'svelte';
   const router = getContext('routie');
   
@@ -12,8 +9,6 @@
   let task = null;
   let error = null;
 
-  // We'll parse the URL param. For example, if path is "/tasks/:id", 
-  // the param is in router.params.id
   onMount(() => {
     taskId = router.params.id;
     fetchTask(taskId);
@@ -39,8 +34,8 @@
     margin-top: 2rem;
   }
   .card {
-    background-color: rgba(255,255,255,0.1);
-    border: 1px solid #00ffff;
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid var(--pastel-gray);
     padding: 1rem;
   }
 </style>

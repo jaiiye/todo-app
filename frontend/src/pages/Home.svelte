@@ -6,8 +6,8 @@
   h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
-    color: #00ffff; 
-    text-shadow: 0 0 5px rgba(0, 255, 255, 0.7);
+    color: var(--pastel-black);
+    text-shadow: 0 0 5px rgba(238, 238, 243, 0.7);
   }
   p {
     font-size: 1.5rem;

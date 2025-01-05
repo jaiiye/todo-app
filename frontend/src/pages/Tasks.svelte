@@ -75,26 +75,27 @@
 <style>
   .tasks-container {
     margin-top: 2rem;
+    font-family: inherit;
   }
   .error {
-    background-color: #ffcccc;
-    color: #333;
+    background-color: var(--pastel-pink);
+    color: var(--pastel-black);
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 4px;
   }
   .card {
-    border: 1px solid #00ffff;
-    background-color: rgba(255,255,255,0.1);
+    border: 1px solid var(--pastel-gray);
+    background-color: rgba(255, 255, 255, 0.75);
     padding: 1rem;
     border-radius: 8px;
     transition: box-shadow 0.2s ease;
   }
   .card:hover {
-    box-shadow: 0 0 10px #00ffff;
+    box-shadow: 0 0 10px var(--pastel-gray);
   }
   .badge {
-    background-color: #28a745;
+    background-color: var(--pastel-dark-gray);
     border-radius: 4px;
     padding: 0.2rem 0.5rem;
     margin-left: 0.5rem;
@@ -105,10 +106,22 @@
   }
   .add-task-form {
     margin-top: 1rem;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.75);
     padding: 1rem;
     border-radius: 6px;
-    border: 1px solid #00ffff;
+    border: 1px solid var(--pastel-gray);
+  }
+  .btn-complete {
+    background-color: var(--pastel-green);
+    color: var(--pastel-white);
+    border: 1px solid var(--pastel-dark-gray);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  .btn-complete:hover {
+    background-color: var(--pastel-dark-gray);
   }
 </style>
 
@@ -172,6 +185,9 @@
             </button>
             <button class="btn btn-outline-danger" on:click={() => removeTask(task.id)}>
               Delete
+            </button>
+            <button class="btn-complete" on:click={() => saveTask(task)}>
+              Complete
             </button>
           {:else}
             <h5>Editing Task #{task.id}</h5>

@@ -114,9 +114,9 @@
   .btn-info {
     background-color: rgb(130, 122, 147); 
     color: var(--pastel-white);
-    border: 1px solid rgba(146, 141, 141, 0.75);
+    border: 2px solid rgb(130, 122, 147);
     padding: 0.5rem 1rem;
-    border-radius: 2px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s ease;
   }

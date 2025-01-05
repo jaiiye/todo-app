@@ -13,6 +13,7 @@
   --pastel-dark-gray: #c3c3d2;
   --pastel-black: #1D1D1F;
   --pastel-white: #FFFFFF;
+  --pastel-mint: #127678;
 
   color-scheme: light dark;
   color: var(--pastel-black);

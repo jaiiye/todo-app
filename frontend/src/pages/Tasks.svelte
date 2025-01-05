@@ -95,7 +95,7 @@
     box-shadow: 0 0 10px var(--pastel-gray);
   }
   .badge {
-    background-color: var(--pastel-dark-gray);
+    background-color: var(--pastel-mint);
     border-radius: 4px;
     padding: 0.2rem 0.5rem;
     margin-left: 0.5rem;
@@ -110,6 +110,18 @@
     padding: 1rem;
     border-radius: 6px;
     border: 1px solid var(--pastel-gray);
+  }
+  .btn-info {
+    background-color: rgb(130, 122, 147); 
+    color: var(--pastel-white);
+    border: 1px solid rgba(146, 141, 141, 0.75);
+    padding: 0.5rem 1rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  .btn-info:hover {
+    background-color: var(--pastel-dark-gray);
   }
 </style>
 

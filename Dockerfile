@@ -23,7 +23,9 @@ COPY --from=builder /builder/extracted/dependencies/ ./
 COPY --from=builder /builder/extracted/spring-boot-loader/ ./
 COPY --from=builder /builder/extracted/snapshot-dependencies/ ./
 COPY --from=builder /builder/extracted/application/ ./
-COPY --from=builder /builder/static-dist/ ./static-dist/
+COPY --from=builder /builder/static-dist/ /usr/local/nginx/html/
+# Anonymous volume for nginx
+VOLUME /usr/local/nginx/html
 # Start the application jar - this is not the uber jar used by the builder
 # This jar only contains application code and references to the extracted jar files
 # This layout is efficient to start up and CDS friendly

@@ -12,8 +12,6 @@ services:
     image: 'ghcr.io/jaiiye/todo-app/todo-app:${TODO_APP_IMAGE_TAG:-latest}'
     ports:
       - "8080:8080"
-    volumes:
-      - static_files:/application/static-dist
     depends_on:
       - db
   nginx:
@@ -22,8 +20,7 @@ services:
       - "80:80"
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
-      - static_files:/usr/share/nginx/html
+    volumes_from:
+      - app
     depends_on:
       - app
-volumes:
-  static_files:

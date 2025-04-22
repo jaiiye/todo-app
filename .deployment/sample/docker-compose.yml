@@ -1,0 +1,27 @@
+version: '3'
+services:
+  # api
+  app:
+    image: 'ghcr.io/jaiiye/todo-app/todo-app:${TODO_APP_IMAGE_TAG:-latest}'
+    ports:
+      - "8080"
+    networks:
+      - infra
+    labels:
+      - "traefik.http.routers.app.rule=Host(`${TODO_APP_HOST:-app.docker.localhost}`) && PathPrefix(`/tasks`)"
+  # static files         
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80"
+    volumes_from:
+      - app
+    depends_on:
+      - app
+    networks:
+      - infra
+    labels:
+      - "traefik.http.routers.nginx.rule=Host(`${TODO_APP_HOST:-app.docker.localhost}`)"
+networks:
+  infra:
+    external: true
